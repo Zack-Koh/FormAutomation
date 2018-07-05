@@ -233,8 +233,6 @@ this.ScenarioSetup(scenarioInfo);
   testRunner.Then(string.Format("I identify the Non-folder ChildArtifacts in {0}", artifactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 86
   testRunner.Then(string.Format("I select {0} for \'Install Workflow as Draft\' in Sub Artifact settings", yesNo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 88
-  testRunner.Then(string.Format("I select \'{0}\' button in Edit Package Template window", ePT_Button), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

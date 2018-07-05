@@ -184,6 +184,8 @@ namespace SkeltaFormAutomation.PageObjects
         [FindsBy(How = How.XPath, Using = "//textarea[@id='SQLScript']")]
         public IWebElement SQLSCript_EditPackageTemplate_TextArea { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//div[contains(text(),'The SQL script contains one or multiple restricted commands')]")]
+        public IWebElement SQLScriptError_EditPackageTemplate_Popup { get; set; }
 
     }
 }

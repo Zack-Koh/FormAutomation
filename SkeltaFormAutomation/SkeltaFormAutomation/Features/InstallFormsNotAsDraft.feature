@@ -85,7 +85,7 @@ Scenario Outline: Set all Workflows to Publish during installation
 	#Select Forms to Install the Form in published mode
 		Then I select <Yes/No> for 'Install Workflow as Draft' in Sub Artifact settings
 	#Save forms saved
-		Then I select '<EPT_button>' button in Edit Package Template window
+		#Then I select '<EPT_button>' button in Edit Package Template window
 		
 Examples: 
 | Browser | URL                                                                  | Username                | Password     | IFrameName | IFrame2Name | Package Name   | Status | ActionName | EditPackageTemplateButton | ArtifactName | Yes/No | Label                     | EPT_button    |

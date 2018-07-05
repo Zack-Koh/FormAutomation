@@ -273,6 +273,8 @@ namespace SkeltaFormAutomation.Steps
         {
             for (int i = 0; i < NonFolderSubArtifactNameList.Count; i++)
             {
+                
+
                 string NonFolderSubArtifactText = NonFolderSubArtifactNameList[i];
 
                 //Switch to default iframe, then to window close behaviour for each iteration of non folder sub artifacts
@@ -283,6 +285,50 @@ namespace SkeltaFormAutomation.Steps
                 //Open named subartifact
                 Pages.PackageTemplate.NonFolderSubArtifact_EditPackageTemplate(NonFolderSubArtifactText).Click();
 
+                if (i > 0)
+                {
+                    if ((Label.ToLower()).Contains("workflow"))
+                    {
+                        try
+                        {
+                            SeleniumMethods.SwitchToDefaultContent();
+                            bool IsElementPresent = SeleniumMethods.isElementPresent(Pages.PackageTemplate.SQLScriptError_EditPackageTemplate_Popup);
+                            if (IsElementPresent==true)
+                            {
+                                string ElementText = Pages.PackageTemplate.SQLScriptError_EditPackageTemplate_Popup.Text;
+                                //SeleniumMethods.isElementPresent(Pages.PackageTemplate.SQLScriptError_EditPacakgeTemplate_Popup);
+                                //SeleniumMethods.isElementPresent(Pages.SkeltaHomePage.PopupNotification_Close_Button);
+                                Pages.SkeltaHomePage.PopupNotification_Close_Button.Click();
+
+                                //Switch to default iframe, then to window close behaviour for each iteration of non folder sub artifacts
+                                SeleniumMethods.SwitchToDefaultContent();
+                                SeleniumMethods.isElementPresent(Pages.PackageTemplate.WindowCloseBehaviour_iframe);
+                                SeleniumMethods.SwitchToFrameWebElement(Pages.PackageTemplate.IFrame("WindowCloseBehaviour"));
+                                SeleniumMethods.isElementPresent(Pages.PackageTemplate.SubArtifactSettingsHeader_EditPackageTemplate);
+                                SeleniumMethods.SwitchToFrameWebElement(Pages.PackageTemplate.SettingFrame_IFrame);
+                                Pages.PackageTemplate.SQLSCript_EditPackageTemplate_TextArea.Clear();
+
+                                //Re open named subartifact
+                                SeleniumMethods.SwitchToDefaultContent();
+                                SeleniumMethods.isElementPresent(Pages.PackageTemplate.WindowCloseBehaviour_iframe);
+                                SeleniumMethods.SwitchToFrameWebElement(Pages.PackageTemplate.IFrame("WindowCloseBehaviour"));
+                                Pages.PackageTemplate.NonFolderSubArtifact_EditPackageTemplate(NonFolderSubArtifactText).Click();
+                            }
+                            else
+                            {
+                                SeleniumMethods.isElementPresent(Pages.PackageTemplate.WindowCloseBehaviour_iframe);
+                                SeleniumMethods.SwitchToFrameWebElement(Pages.PackageTemplate.IFrame("WindowCloseBehaviour"));
+                            }
+                            
+                        }
+                        catch (Exception)
+                        {
+
+                            //throw;
+                        }
+                    }
+                }
+
                 //Change form settings
                 SeleniumMethods.isElementPresent(Pages.PackageTemplate.SubArtifactSettingsHeader_EditPackageTemplate);
                 SeleniumMethods.SwitchToFrameWebElement(Pages.PackageTemplate.SettingFrame_IFrame);
@@ -290,18 +336,20 @@ namespace SkeltaFormAutomation.Steps
 
                 //StringComparison StringContainIgnoreCase = StringComparison.OrdinalIgnoreCase;
                 
-                if ((Label.ToLower()).Contains("workflow"))
-                {
-                    try
-                    {
-                        Pages.PackageTemplate.SQLSCript_EditPackageTemplate_TextArea.Clear();
-                    }
-                    catch (Exception)
-                    {
+                //if ((Label.ToLower()).Contains("workflow"))
+                //{
+                //    try
+                //    {
+                //        bool IsSQLScriptErrorPresent = SeleniumMethods.isElementPresent(Pages.PackageTemplate.SQLScriptError_EditPacakgeTemplate_Popup);
+                //        Pages.PackageTemplate.SQLScriptError_EditPacakgeTemplate_Popup.Clear();
+                //        Pages.PackageTemplate.SQLSCript_EditPackageTemplate_TextArea.Clear();
+                //    }
+                //    catch (Exception)
+                //    {
 
-                        //throw;
-                    }
-                }
+                //        //throw;
+                //    }
+                //}
 
             }
             //ScenarioContext.Current.Pending();
