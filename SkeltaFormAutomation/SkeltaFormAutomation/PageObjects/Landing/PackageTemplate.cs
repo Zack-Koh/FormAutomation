@@ -181,6 +181,9 @@ namespace SkeltaFormAutomation.PageObjects
         [FindsBy(How = How.XPath, Using = "//input[@id='btnSave']")]
         public IWebElement EditPackageTemplate_SaveTemplate_Button { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//textarea[@id='SQLScript']")]
+        public IWebElement SQLSCript_EditPackageTemplate_TextArea { get; set; }
+
 
     }
 }

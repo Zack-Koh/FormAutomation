@@ -288,6 +288,21 @@ namespace SkeltaFormAutomation.Steps
                 SeleniumMethods.SwitchToFrameWebElement(Pages.PackageTemplate.SettingFrame_IFrame);
                 Pages.PackageTemplate.NonFolderSubartifactSettings_EditPackageTemplate_Button(Label, YesOrNo).Click();
 
+                //StringComparison StringContainIgnoreCase = StringComparison.OrdinalIgnoreCase;
+                
+                if ((Label.ToLower()).Contains("workflow"))
+                {
+                    try
+                    {
+                        Pages.PackageTemplate.SQLSCript_EditPackageTemplate_TextArea.Clear();
+                    }
+                    catch (Exception)
+                    {
+
+                        //throw;
+                    }
+                }
+
             }
             //ScenarioContext.Current.Pending();
         }

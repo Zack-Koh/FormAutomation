@@ -173,6 +173,97 @@ this.ScenarioSetup(scenarioInfo);
 this.SetAllFormsToPublishDuringInstallation("Chrome", "http://sglab522.singdevlab.dev.wonderware.com:8000/EnterpriseConsole", "singdevlab\\indsollabusr", "IndSolusr101", "Mainframe", "Gridframe", "For Automation", "Draft", "Edit", "Save & Continue", "Forms", "No", "Install Form as Draft", "Save Template", ((string[])(null)));
 #line hidden
         }
+        
+        public virtual void SetAllWorkflowsToPublishDuringInstallation(string browser, string uRL, string username, string password, string iFrameName, string iFrame2Name, string packageName, string status, string actionName, string editPackageTemplateButton, string artifactName, string yesNo, string label, string ePT_Button, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "UI"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set all Workflows to Publish during installation", @__tags);
+#line 51
+this.ScenarioSetup(scenarioInfo);
+#line 53
+ testRunner.Given("I launch Chrome", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 55
+ testRunner.Given("I navigate to http://10.184.208.231:8000/EnterpriseConsole/BPMUITemplates/Default" +
+                    "/Repository/Site/Login.aspx?_repo=LPS_Repo&_instanceName=MESDB_MES&_provtext=MES" +
+                    "%20Users[MESDB_MES]&_prov=mesuserprovider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
+ testRunner.Given(string.Format("I log in using username {0} and password {1}", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 59
+ testRunner.Given("I select Package on Navigation side bar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 60
+ testRunner.Given("I select Package Template on Package tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 62
+ testRunner.Given("I switch to Iframe Mainframe in Package Template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 63
+ testRunner.Given("I switch to Iframe Gridframe in Package Template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 64
+ testRunner.Given(string.Format("Skelta Package {0} status is Draft", packageName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 65
+ testRunner.Then(string.Format("I select Skelta Package {0}", packageName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 68
+  testRunner.Given("I switch to default Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 69
+  testRunner.Given("I switch to Iframe Mainframe in Package Template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 70
+  testRunner.Given(string.Format("I select the {0} Package button", actionName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 72
+  testRunner.Given("I switch to default Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 73
+  testRunner.Given("I switch to Iframe WindowCloseBehaviour in Package Template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 74
+  testRunner.Given(string.Format("I select {0} button in Edit Package Template", editPackageTemplateButton), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 76
+  testRunner.Given("I switch to default Frame", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 77
+  testRunner.Then("I close the Popup window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 79
+  testRunner.Given("Edit Package Template page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 80
+  testRunner.Given("I switch to Iframe WindowCloseBehaviour in Package Template", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 81
+  testRunner.Given(string.Format("I Expand {0} under Configuration tab in Edit Package Template", artifactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 83
+  testRunner.Then(string.Format("I count the number for ChildArtifacts in {0}", artifactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 84
+  testRunner.Then(string.Format("I identify the Non-folder ChildArtifacts in {0}", artifactName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 86
+  testRunner.Then(string.Format("I select {0} for \'Install Workflow as Draft\' in Sub Artifact settings", yesNo), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 88
+  testRunner.Then(string.Format("I select \'{0}\' button in Edit Package Template window", ePT_Button), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Set all Workflows to Publish during installation: Chrome")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "InstallFormsNotAsDraft")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("UI")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Chrome")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Browser", "Chrome")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:URL", "http://sglab522.singdevlab.dev.wonderware.com:8000/EnterpriseConsole")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Username", "singdevlab\\indsollabusr")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Password", "IndSolusr101")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:IFrameName", "Mainframe")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:IFrame2Name", "Gridframe")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Package Name", "For Automation")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Status", "Draft")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:ActionName", "Edit")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:EditPackageTemplateButton", "Save & Continue")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:ArtifactName", "Workflows")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Yes/No", "No")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Label", "Install Workflow as Draft")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:EPT_button", "Save Template")]
+        public virtual void SetAllWorkflowsToPublishDuringInstallation_Chrome()
+        {
+#line 51
+this.SetAllWorkflowsToPublishDuringInstallation("Chrome", "http://sglab522.singdevlab.dev.wonderware.com:8000/EnterpriseConsole", "singdevlab\\indsollabusr", "IndSolusr101", "Mainframe", "Gridframe", "For Automation", "Draft", "Edit", "Save & Continue", "Workflows", "No", "Install Workflow as Draft", "Save Template", ((string[])(null)));
+#line hidden
+        }
     }
 }
 #pragma warning restore
